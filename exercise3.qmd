@@ -25,12 +25,12 @@ editor: source
 ### 1.1 Structure R-Project
 
 The following project was created for the exercise:
-cma-week2-rexercise
+cma-week3-rexercise
 
 Data was stored in the folder "datasets".
 
-Code and explanations in this Quarto-File where stored and submitted via the public GitHub Repo "bieriluk/cma-week2":
-https://github.com/bieriluk/cma-week2.git
+Code and explanations in this Quarto-File where stored and submitted via the public GitHub Repo "bieriluk/cma-week3":
+https://github.com/bieriluk/cma-week3.git
 
 
 ### 1.2 Data
@@ -46,6 +46,11 @@ The following datasets were used:
     Downloaded: 28.04.2023
     Source: https://moodle.zhaw.ch/pluginfile.php/1168373/mod_folder/content/0/wildschwein_BE_2056.csv?forcedownload=1
     
+In addition, tracking data of my own movement was used. This data was collected using the tracking app Posmo: https://posmo.coop/produkte/posmo-project-tracking-fuer-gruppen
+
+The tracking data was downloaded on the 02.05.2023 and covers the duration from 11.04.-02.05.2023.
+2.  File: "posmo_2023-01-01_2023-05-02.csv"
+
 Information on the R Exercise can be found here:
 https://computationalmovementanalysis.github.io/FS23/
 
@@ -61,10 +66,10 @@ Platform: x86_64-w64-mingw32/x64 (64-bit)
 **RStudio 2023.03.0+386** "Cherry Blossom" Release (3c53477afb13ab959aeb5b34df1f10c237b256c3, 2023-03-09) for Windows
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) RStudio/2023.03.0+386 Chrome/108.0.5359.179 Electron/22.0.3 Safari/537.36
 
-**Gitfor WindowsVersion 2.40.1**
+**Git for Windows Version 2.40.1**
 
 
-## 2. Task 1: Performe the Segmentation on the wild boar data
+## 2. Task 1: Performe the Segmentation on the exemplary wild boar data
 
 ### 2.1 Preparation
 
@@ -76,13 +81,12 @@ Then: Load necessary functions
 library("readr") # to import tabular data (e.g. csv)
 library("dplyr") # to manipulate (tabular) data
 library("ggplot2") # to visualize data
-library("sf")
+#library("sf")
 ```
 
 
-### 2.2 Import wild boar data
+### 2.2 Import & filter wild boar data
 ```{r}
-
 wildschwein_BE <- read_delim("datasets/wildschwein_BE_2056.csv", ",")
 
 wildschwein_BE$TierName |> unique()
@@ -98,6 +102,7 @@ sabi <- wildschwein_BE |>
 sabi
 ```
 
+### 2.3 Get an overview
 ```{r}
 ggplot(sabi, aes(E,N, color = DatetimeUTC)) +
   geom_point() +
@@ -112,6 +117,9 @@ sabi |>
   geom_point()
 ```
 
+### 2.4 (a) Specify a temporal windows v for in which to measure Euclidean distances
+
+### 2.5 (b) Measure the distance from every point to every other point within this temporal window v
 ```{r}
 sabi <- sabi |> 
   mutate(
@@ -132,22 +140,55 @@ sabi <- sabi |>
 ```
 Careful, you need rowwise() for the mutate() function to caclulate mean() for every row. You need to ungroup it in the end, because your data frame has the rowwise grouping saved.
 
+### 2.6 (c) Remove “static points”: These are points where the average distance is less than a given threshold
 
+We need to determine the appropriate threshold where the points are stationary. It helps to visualize the data:
 ```{r}
 ggplot(sabi, aes(stepMean)) +
   geom_histogram(binwidth = 10) +
   geom_vline(xintercept = mean(sabi$stepMean, na.rm = TRUE))
 ```
 
+In this example we used the mean as the threshold (below the mean = static = TRUE).
 ```{r}
-sabi |>
-  mutate(static = stepMean < mean(sabi$stepMean, na.rm = TRUE)) |>
-  ggplot(aes(E,N)) +
+sabi <- sabi |>
+    ungroup() |>
+    mutate(static = stepMean < mean(stepMean, na.rm = TRUE))
+
+sabi
+```
+
+```{r}
+ggplot(sabi, aes(E,N)) +
   geom_path() +
   geom_point(aes(color = static)) +
   coord_equal()
-
 ```
+
+If the result looks good, filter out the static segments:
+```{r}
+sabi_filter <- sabi |>
+    filter(!static)
+
+sabi_filter
+```
+
+And visualize the result:
+```{r}
+sabi_filter |>
+    ggplot(aes(E, N)) +
+    geom_path() +
+    geom_point() +
+    coord_fixed() +
+    theme(legend.position = "bottom")
+```
+
+
+### 2.7 (d) Remove short subtrajectories
+
+
+### 2.8 Visualize the segmented & filtered data
+
 
 ## 3. Task 2: Segmentation of your Posmo data
 
