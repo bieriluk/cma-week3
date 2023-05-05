@@ -64,7 +64,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 **Gitfor WindowsVersion 2.40.1**
 
 
-## 2. Task 1: Import your data
+## 2. Task 1: Performe the Segmentation on the wild boar data
 
 ### 2.1 Preparation
 
@@ -80,32 +80,39 @@ library("sf")
 ```
 
 
-### 2.2 Import wild boar data & convert with to spatial data
+### 2.2 Import wild boar data
 ```{r}
 
 wildschwein_BE <- read_delim("datasets/wildschwein_BE_2056.csv", ",")
 
 wildschwein_BE$TierName |> unique()
+```
 
-
-
+For this, we will only work with the data of "sabi"
+```{r}
 sabi <- wildschwein_BE |> 
   filter(TierName == "Sabi") |> 
   filter(DatetimeUTC >= as.POSIXct("2015-07-01", tz = "UTC"), 
          DatetimeUTC < as.POSIXct("2015-07-03", tz = "UTC"))
 
 sabi
+```
 
+```{r}
 ggplot(sabi, aes(E,N, color = DatetimeUTC)) +
   geom_point() +
   geom_path() +
   coord_equal()
+```
 
+```{r}
 sabi |> 
   head(50) |> 
   ggplot(aes(DatetimeUTC, 1)) +
   geom_point()
+```
 
+```{r}
 sabi <- sabi |> 
   mutate(
     n_plus1 = sqrt((lead(E,1) - E)^2 + (lead(N,1) - N)^2),
@@ -113,18 +120,26 @@ sabi <- sabi |>
     n_minus1 = sqrt((lag(E,1) - E)^2 + (lag(N,1) - N)^2),
     n_minus2 = sqrt((lag(E,2) - E)^2 + (lag(N,2) - N)^2)
   )
+```
 
+```{r}
 sabi <- sabi |> 
   rowwise() |> 
   mutate(
     stepMean = mean(c(n_minus1, n_minus2, n_plus1, n_plus2))
   ) |> 
   ungroup()
+```
+Careful, you need rowwise() for the mutate() function to caclulate mean() for every row. You need to ungroup it in the end, because your data frame has the rowwise grouping saved.
 
+
+```{r}
 ggplot(sabi, aes(stepMean)) +
   geom_histogram(binwidth = 10) +
   geom_vline(xintercept = mean(sabi$stepMean, na.rm = TRUE))
+```
 
+```{r}
 sabi |>
   mutate(static = stepMean < mean(sabi$stepMean, na.rm = TRUE)) |>
   ggplot(aes(E,N)) +
@@ -132,9 +147,8 @@ sabi |>
   geom_point(aes(color = static)) +
   coord_equal()
 
-#wildschwein_BE <- st_as_sf(wildschwein_BE, coords = c("E", "N"), crs = 2056, remove = FALSE)
-
 ```
-Careful, you need rowwise() for the mutate() function to caclulate mean() for every row. You need to ungroup it in the end, because your data frame has the rowwise grouping saved.
 
-## 3.
+## 3. Task 2: Segmentation of your Posmo data
+
+
