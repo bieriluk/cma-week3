@@ -1,0 +1,140 @@
+---
+title: "expercise3"
+author: "Lukas Bieri (bieriluk)"
+date: "05.05.2023"
+format: html
+editor: source
+---
+# Exercise 3 -  Computational Movement Analysis: Patterns and Trends in Environmental Data
+
+## 1. Information & Metadata
+
+### 1.1 Information
+
+**Study program:** MSc in Environment and Natural Resources FS23
+
+**Module:** Computational Movement Analysis: Patterns and Trends in Environmental Data
+
+**Course:** R Exercise 3 - Week 3
+
+**Lecturers:** Patrick Laube (laup), Nils Ratnaweera (rata) & Dominic Lüönd (luoe)
+
+**Authors:** Lukas Bieri (bieriluk)
+
+
+### 1.1 Structure R-Project
+
+The following project was created for the exercise:
+cma-week2-rexercise
+
+Data was stored in the folder "datasets".
+
+Code and explanations in this Quarto-File where stored and submitted via the public GitHub Repo "bieriluk/cma-week2":
+https://github.com/bieriluk/cma-week2.git
+
+
+### 1.2 Data
+
+Data for the exercise was provided by the teaching staff via the plattform "Moodle". 
+
+The data originates from the ZHAW Research Projekt "Using an acoustic signal to prevent wild boars from damaging crops"
+https://www.zhaw.ch/en/about-us/news/news-releases/news-detail/event-news/using-an-acoustic-signal-to-prevent-wild-boars-from-damaging-crops/
+
+The following datasets were used:
+
+1.  File: "wildschwein_BE_2056.csv"
+    Downloaded: 28.04.2023
+    Source: https://moodle.zhaw.ch/pluginfile.php/1168373/mod_folder/content/0/wildschwein_BE_2056.csv?forcedownload=1
+    
+Information on the R Exercise can be found here:
+https://computationalmovementanalysis.github.io/FS23/
+
+These R Exercises are created by Patrick Laube, Nils Ratnaweera, Nikolaos Bakogiannis and Dominic Lüönd for the Course Computational Movement Analysis and are licensed under Creative Commons Attribution 4.0 International License.
+
+
+### 1.4 Used Software
+
+**R version 4.2.1 (2022-06-23 ucrt)** -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+**RStudio 2023.03.0+386** "Cherry Blossom" Release (3c53477afb13ab959aeb5b34df1f10c237b256c3, 2023-03-09) for Windows
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) RStudio/2023.03.0+386 Chrome/108.0.5359.179 Electron/22.0.3 Safari/537.36
+
+**Gitfor WindowsVersion 2.40.1**
+
+
+## 2. Task 1: Import your data
+
+### 2.1 Preparation
+
+In Preparation: Restart R and clear console.
+
+Then: Load necessary functions
+
+```{r}
+library("readr") # to import tabular data (e.g. csv)
+library("dplyr") # to manipulate (tabular) data
+library("ggplot2") # to visualize data
+library("sf")
+```
+
+
+### 2.2 Import wild boar data & convert with to spatial data
+```{r}
+
+wildschwein_BE <- read_delim("datasets/wildschwein_BE_2056.csv", ",")
+
+wildschwein_BE$TierName |> unique()
+
+
+
+sabi <- wildschwein_BE |> 
+  filter(TierName == "Sabi") |> 
+  filter(DatetimeUTC >= as.POSIXct("2015-07-01", tz = "UTC"), 
+         DatetimeUTC < as.POSIXct("2015-07-03", tz = "UTC"))
+
+sabi
+
+ggplot(sabi, aes(E,N, color = DatetimeUTC)) +
+  geom_point() +
+  geom_path() +
+  coord_equal()
+
+sabi |> 
+  head(50) |> 
+  ggplot(aes(DatetimeUTC, 1)) +
+  geom_point()
+
+sabi <- sabi |> 
+  mutate(
+    n_plus1 = sqrt((lead(E,1) - E)^2 + (lead(N,1) - N)^2),
+    n_plus2 = sqrt((lead(E,2) - E)^2 + (lead(N,2) - N)^2),
+    n_minus1 = sqrt((lag(E,1) - E)^2 + (lag(N,1) - N)^2),
+    n_minus2 = sqrt((lag(E,2) - E)^2 + (lag(N,2) - N)^2)
+  )
+
+sabi <- sabi |> 
+  rowwise() |> 
+  mutate(
+    stepMean = mean(c(n_minus1, n_minus2, n_plus1, n_plus2))
+  ) |> 
+  ungroup()
+
+ggplot(sabi, aes(stepMean)) +
+  geom_histogram(binwidth = 10) +
+  geom_vline(xintercept = mean(sabi$stepMean, na.rm = TRUE))
+
+sabi |>
+  mutate(static = stepMean < mean(sabi$stepMean, na.rm = TRUE)) |>
+  ggplot(aes(E,N)) +
+  geom_path() +
+  geom_point(aes(color = static)) +
+  coord_equal()
+
+#wildschwein_BE <- st_as_sf(wildschwein_BE, coords = c("E", "N"), crs = 2056, remove = FALSE)
+
+```
+Careful, you need rowwise() for the mutate() function to caclulate mean() for every row. You need to ungroup it in the end, because your data frame has the rowwise grouping saved.
+
+## 3.
