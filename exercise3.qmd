@@ -371,7 +371,109 @@ ggplot(pedestrian, aes(E,N, color = TrajID)) +
 ```
 
 ### 3.7 Task 6: Calculate similarity
+Separate into different matrices:
+```{r}
+Traj1 <- pedestrian |>
+  filter(TrajID == 1) |> 
+  select(E, N) |> 
+  data.matrix()
+class(Traj1)
 
+Traj2 <- pedestrian |>
+  filter(TrajID == 2) |> 
+  select(E, N) |> 
+  data.matrix()
+
+Traj3 <- pedestrian |>
+  filter(TrajID == 3) |> 
+  select(E, N) |> 
+  data.matrix()
+
+Traj4 <- pedestrian |>
+  filter(TrajID == 4) |> 
+  select(E, N) |> 
+  data.matrix()
+
+Traj5 <- pedestrian |>
+  filter(TrajID == 5) |> 
+  select(E, N) |> 
+  data.matrix()
+
+Traj6 <- pedestrian |>
+  filter(TrajID == 6) |> 
+  select(E, N) |> 
+  data.matrix()
+
+```
+
+```{r}
+ID <- c(2, 3, 4, 5, 6)
+```
+
+
+DTW
+```{r}
+DTW(Traj1, Traj2)
+DTW(Traj1, Traj3)
+DTW(Traj1, Traj4)
+DTW(Traj1, Traj5)
+DTW(Traj1, Traj6)
+
+DTW <- c(DTW(Traj1, Traj2), DTW(Traj1, Traj3), DTW(Traj1, Traj4), DTW(Traj1, Traj5), DTW(Traj1, Traj6))
+DTW
+```
+
+EditDist
+```{r}
+EditDist(Traj1, Traj2, 20)
+EditDist(Traj1, Traj3, 20)
+EditDist(Traj1, Traj4, 20)
+EditDist(Traj1, Traj5, 20)
+EditDist(Traj1, Traj6, 20)
+
+EditDist <- c(EditDist(Traj1, Traj2, 20), EditDist(Traj1, Traj3, 20), EditDist(Traj1, Traj4, 20), EditDist(Traj1, Traj5, 20), EditDist(Traj1, Traj6, 20))
+EditDist
+```
+
+
+Frechet 
+```{r}
+Frechet(Traj1, Traj2)
+Frechet(Traj1, Traj3)
+Frechet(Traj1, Traj4)
+Frechet(Traj1, Traj5)
+Frechet(Traj1, Traj6)
+
+Frechet <- c(Frechet(Traj1, Traj2), Frechet(Traj1, Traj3), Frechet(Traj1, Traj4), Frechet(Traj1, Traj5), Frechet(Traj1, Traj6))
+Frechet
+```
+
+LCSS
+```{r}
+LCSS(Traj1, Traj2, errorMarg = 10)
+LCSS(Traj1, Traj3, errorMarg = 10)
+LCSS(Traj1, Traj4, errorMarg = 10)
+LCSS(Traj1, Traj5, errorMarg = 10)
+LCSS(Traj1, Traj6, errorMarg = 10)
+
+LCSS <- c(LCSS(Traj1, Traj2, errorMarg = 10), LCSS(Traj1, Traj3, errorMarg = 10), LCSS(Traj1, Traj4, errorMarg = 10), LCSS(Traj1, Traj5, errorMarg = 10), LCSS(Traj1, Traj6, errorMarg = 10))
+LCSS
+```
+
+Table:
+```{r}
+Similarity <- data.frame(ID, DTW, EditDist, Frechet, LCSS)
+Similarity
+```
+
+Visualization:
+```{r}
+pivot_longer(Similarity, cols = c("DTW", "EditDist", "Frechet", "LCSS"))
+
+ggplot(Similarity, aes(ID, value, color = ID)) +
+  geom_bar() + 
+  facet_wrap(name~.)
+```
 
 
 ### 3.8 Submission
