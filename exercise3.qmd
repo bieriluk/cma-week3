@@ -1,7 +1,7 @@
 ---
 title: "expercise3"
 author: "Lukas Bieri (bieriluk)"
-date: "05.05.2023"
+date: "07.05.2023"
 format: html
 editor: source
 ---
@@ -69,7 +69,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 **Git for Windows Version 2.40.1**
 
 
-## 2. Task 1: Performe the Segmentation on the exemplary wild boar data
+## 2. Performe the Segmentation on the exemplary wild boar data (Demo)
 
 ### 2.1 Preparation
 
@@ -173,6 +173,11 @@ sabi_filter <- sabi |>
 sabi_filter
 ```
 
+
+### 2.7 (d) Remove short subtrajectories
+Not implemented for this example.
+
+### 2.8 Visualize the segmented & filtered data
 And visualize the result:
 ```{r}
 sabi_filter |>
@@ -184,12 +189,24 @@ sabi_filter |>
 ```
 
 
-### 2.7 (d) Remove short subtrajectories
+## 3. Segmentation of your Posmo data
+With what we learned, we can no process the Posmo data
 
+### 3.1 Preperation
 
-### 2.8 Visualize the segmented & filtered data
+### 3.2 Task 1: Segmentation
 
+### 3.3 Task 2: Specify and apply threshold d
 
-## 3. Task 2: Segmentation of your Posmo data
+### 3.4 Task 3: Visualize segmented trajectories
+
+### 3.5 Task 4: Segment-based analysis
+
+### 3.6 Task 5: Similarity measures
+
+### 3.7 Task 6: Calculate similarity
+
+### 3.8 Submission
+Submitted on the XX.XX.2023 by pushing it to GitHub.
 
 
