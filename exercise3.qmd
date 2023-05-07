@@ -79,9 +79,12 @@ Then: Load necessary functions
 
 ```{r}
 library("readr") # to import tabular data (e.g. csv)
+library ("tidyr")
 library("dplyr") # to manipulate (tabular) data
 library("ggplot2") # to visualize data
 library("sf")
+#install.packages("SimilarityMeasures")
+library("SimilarityMeasures")
 ```
 
 
@@ -118,6 +121,7 @@ sabi |>
 ```
 
 ### 2.4 (a) Specify a temporal windows v for in which to measure Euclidean distances
+Set at 2 previous and two following data point, so overall appr. 1h window.
 
 ### 2.5 (b) Measure the distance from every point to every other point within this temporal window v
 ```{r}
@@ -225,16 +229,150 @@ posmo_filter <- posmo |>
 ```
 
 ### 3.2 Task 1: Segmentation
+Implement above mentioned steps a-c for your movement data.
+
+#### 3.2.1 Get an overview
+```{r}
+ggplot(posmo_filter, aes(X,Y, color = datetime)) +
+  geom_point() +
+  geom_path() +
+  coord_equal()
+```
+X = E, Y = N
+
+```{r}
+posmo_filter|> 
+  head(50) |> 
+  ggplot(aes(datetime, 1)) +
+  geom_point()
+```
+
+#### 3.2.2 (a) Specify a temporal windows v for in which to measure Euclidean distances
+Calculate timelag to figure out a appropriate temporal window:
+```{r}
+posmo_filter <- posmo_filter|>
+  mutate(timelag_s = as.numeric(difftime(lead(datetime), datetime)))
+```
+
+So what does the timelag between measurment points look like:
+```{r}
+tail(posmo_filter)
+mean(posmo_filter$timelag_s, na.rm = TRUE)
+median(posmo_filter$timelag_s, na.rm = TRUE)
+min(posmo_filter$timelag_s, na.rm = TRUE)
+max(posmo_filter$timelag_s, na.rm = TRUE)
+
+posmo_filter|> 
+  ggplot(aes(timelag_s)) +
+  geom_histogram(binwidth = 1) +
+  lims(x = c(0, 20000)) +
+  scale_y_log10() +
+  scale_x_log10()
+
+posmo_filter |> 
+  ggplot(aes(datetime, timelag_s)) +
+  geom_point() + 
+  geom_line()
+
+```
+
+To try, we fist choose v = 1h, so 30min 
+
+#### 3.2.3 (b) Measure the distance from every point to every other point within this temporal window v
+```{r}
+posmo_filter <- posmo_filter |> 
+  mutate(
+    n_plus10 = sqrt((lead(X,10) - X)^2 + (lead(Y,10) - Y)^2),
+    n_plus20 = sqrt((lead(X,20) - X)^2 + (lead(Y,20) - Y)^2),
+    n_minus10 = sqrt((lag(X,10) - X)^2 + (lag(Y,10) - Y)^2),
+    n_minus20 = sqrt((lag(X,20) - X)^2 + (lag(Y,20) - Y)^2)
+  )
+```
+
+```{r}
+posmo_filter <- posmo_filter |> 
+  rowwise() |> 
+  mutate(
+    stepMean = mean(c(n_minus10, n_minus20, n_plus10, n_plus20))
+  ) |> 
+  ungroup()
+```
+Careful, you need rowwise() for the mutate() function to caclulate mean() for every row. You need to ungroup it in the end, because your data frame has the rowwise grouping saved.
+
+#### 3.2.4 (c) Remove “static points”: These are points where the average distance is less than a given threshold
+
+We need to determine the appropriate threshold where the points are stationary. It helps to visualize the data:
+```{r}
+ggplot(posmo_filter, aes(stepMean)) +
+  geom_histogram(binwidth = 10) +
+  geom_vline(xintercept = median(posmo_filter$stepMean, na.rm = TRUE))
+```
+
+
 
 ### 3.3 Task 2: Specify and apply threshold d
+In this example we used the mean as the threshold (below the mean = static = TRUE).
+```{r}
+posmo_filter <- posmo_filter |>
+    ungroup() |>
+    mutate(static = stepMean < 200) |>
+    drop_na(static)
+
+
+```
 
 ### 3.4 Task 3: Visualize segmented trajectories
 
+```{r}
+ggplot(posmo_filter, aes(X,Y)) +
+  geom_path() +
+  geom_point(aes(color = static)) +
+  coord_equal()
+```
+
+
 ### 3.5 Task 4: Segment-based analysis
+
+Create function:
+```{r}
+rle_id <- function(vec) {
+    x <- rle(vec)$lengths
+    as.factor(rep(seq_along(x), times = x))
+}
+```
+
+```{r}
+posmo_filter <- posmo_filter |>
+    mutate(segment_id = rle_id(static))
+
+head(posmo_filter)
+```
+
+
+```{r}
+ggplot(posmo_filter, aes(X,Y)) +
+  geom_path() +
+  geom_point(aes(color = segment_id)) +
+  coord_equal()
+```
 
 ### 3.6 Task 5: Similarity measures
 
+```{r}
+pedestrian <- read_delim("datasets/pedestrian.csv", ",")
+```
+
+```{r}
+ggplot(pedestrian, aes(E,N, color = TrajID)) +
+  geom_path() +
+  geom_point() +
+  coord_equal() +
+  facet_wrap(TrajID~.)
+```
+
 ### 3.7 Task 6: Calculate similarity
+
+
 
 ### 3.8 Submission
 Submitted on the XX.XX.2023 by pushing it to GitHub.
