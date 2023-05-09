@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Lukas Bieri (bieriluk)">
+<meta name="dcterms.date" content="2023-09-05">
+
+<title>expercise3</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="exercise3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="exercise3_files/libs/quarto-html/quarto.js"></script>
+<script src="exercise3_files/libs/quarto-html/popper.min.js"></script>
+<script src="exercise3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="exercise3_files/libs/quarto-html/anchor.min.js"></script>
+<link href="exercise3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="exercise3_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="exercise3_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="exercise3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="exercise3_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">expercise3</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Lukas Bieri (bieriluk) </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 5, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="exercise-3---computational-movement-analysis-patterns-and-trends-in-environmental-data" class="level1">
+<h1>Exercise 3 - Computational Movement Analysis: Patterns and Trends in Environmental Data</h1>
+<section id="information-metadata" class="level2">
+<h2 class="anchored" data-anchor-id="information-metadata">1. Information &amp; Metadata</h2>
+<section id="information" class="level3">
+<h3 class="anchored" data-anchor-id="information">1.1 Information</h3>
+<p><strong>Study program:</strong> MSc in Environment and Natural Resources FS23</p>
+<p><strong>Module:</strong> Computational Movement Analysis: Patterns and Trends in Environmental Data</p>
+<p><strong>Course:</strong> R Exercise 3 - Week 3</p>
+<p><strong>Lecturers:</strong> Patrick Laube (laup), Nils Ratnaweera (rata) &amp; Dominic Lüönd (luoe)</p>
+<p><strong>Authors:</strong> Lukas Bieri (bieriluk)</p>
+</section>
+<section id="structure-r-project" class="level3">
+<h3 class="anchored" data-anchor-id="structure-r-project">1.1 Structure R-Project</h3>
+<p>The following project was created for the exercise: cma-week3-rexercise</p>
+<p>Data was stored in the folder “datasets”.</p>
+<p>Code and explanations in this Quarto-File where stored and submitted via the public GitHub Repo “bieriluk/cma-week3”: https://github.com/bieriluk/cma-week3.git</p>
+</section>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">1.2 Data</h3>
+<p>Data for the exercise was provided by the teaching staff via the plattform “Moodle”.</p>
+<p>The data originates from the ZHAW Research Projekt “Using an acoustic signal to prevent wild boars from damaging crops” https://www.zhaw.ch/en/about-us/news/news-releases/news-detail/event-news/using-an-acoustic-signal-to-prevent-wild-boars-from-damaging-crops/</p>
+<p>The following datasets were used:</p>
+<ol type="1">
+<li>File: “wildschwein_BE_2056.csv” Downloaded: 28.04.2023 Source: https://moodle.zhaw.ch/pluginfile.php/1168373/mod_folder/content/0/wildschwein_BE_2056.csv?forcedownload=1</li>
+</ol>
+<p>In addition, tracking data of my own movement was used. This data was collected using the tracking app Posmo: https://posmo.coop/produkte/posmo-project-tracking-fuer-gruppen</p>
+<p>The tracking data was downloaded on the 02.05.2023 and covers the duration from 11.04.-07.05.2023. 2. File: “posmo_2023-01-01_2023-05-07.csv”</p>
+<p>Information on the R Exercise can be found here: https://computationalmovementanalysis.github.io/FS23/</p>
+<p>These R Exercises are created by Patrick Laube, Nils Ratnaweera, Nikolaos Bakogiannis and Dominic Lüönd for the Course Computational Movement Analysis and are licensed under Creative Commons Attribution 4.0 International License.</p>
+</section>
+<section id="used-software" class="level3">
+<h3 class="anchored" data-anchor-id="used-software">1.4 Used Software</h3>
+<p><strong>R version 4.2.1 (2022-06-23 ucrt)</strong> – “Funny-Looking Kid” Copyright (C) 2022 The R Foundation for Statistical Computing Platform: x86_64-w64-mingw32/x64 (64-bit)</p>
+<p><strong>RStudio 2023.03.0+386</strong> “Cherry Blossom” Release (3c53477afb13ab959aeb5b34df1f10c237b256c3, 2023-03-09) for Windows Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) RStudio/2023.03.0+386 Chrome/108.0.5359.179 Electron/22.0.3 Safari/537.36</p>
+<p><strong>Git for Windows Version 2.40.1</strong></p>
+</section>
+</section>
+<section id="performe-the-segmentation-on-the-exemplary-wild-boar-data-demo" class="level2">
+<h2 class="anchored" data-anchor-id="performe-the-segmentation-on-the-exemplary-wild-boar-data-demo">2. Performe the Segmentation on the exemplary wild boar data (Demo)</h2>
+<section id="preparation" class="level3">
+<h3 class="anchored" data-anchor-id="preparation">2.1 Preparation</h3>
+<p>In Preparation: Restart R and clear console.</p>
+<p>Then: Load necessary functions</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"readr"</span>) <span class="co"># to import tabular data (e.g. csv)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (<span class="st">"tidyr"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>) <span class="co"># to manipulate (tabular) data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attache Paket: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>) <span class="co"># to visualize data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"sf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Paket 'sf' wurde unter R Version 4.2.2 erstellt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Linking to GEOS 3.9.3, GDAL 3.5.2, PROJ 8.2.1; sf_use_s2() is TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("SimilarityMeasures")</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"SimilarityMeasures"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="import-filter-wild-boar-data" class="level3">
+<h3 class="anchored" data-anchor-id="import-filter-wild-boar-data">2.2 Import &amp; filter wild boar data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>wildschwein_BE <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datasets/wildschwein_BE_2056.csv"</span>, <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 51246 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (2): TierID, TierName
+dbl  (3): CollarID, E, N
+dttm (1): DatetimeUTC
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>wildschwein_BE<span class="sc">$</span>TierName <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Sabi" "Rosa" "Ruth"</code></pre>
+</div>
+</div>
+<p>For this, we will only work with the data of “sabi”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sabi <span class="ot">&lt;-</span> wildschwein_BE <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(TierName <span class="sc">==</span> <span class="st">"Sabi"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DatetimeUTC <span class="sc">&gt;=</span> <span class="fu">as.POSIXct</span>(<span class="st">"2015-07-01"</span>, <span class="at">tz =</span> <span class="st">"UTC"</span>), </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>         DatetimeUTC <span class="sc">&lt;</span> <span class="fu">as.POSIXct</span>(<span class="st">"2015-07-03"</span>, <span class="at">tz =</span> <span class="st">"UTC"</span>))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>sabi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 192 × 6
+   TierID TierName CollarID DatetimeUTC                E        N
+   &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;    &lt;dbl&gt;
+ 1 002A   Sabi        12275 2015-07-01 00:00:10 2570532. 1205044.
+ 2 002A   Sabi        12275 2015-07-01 00:15:14 2570530. 1205059.
+ 3 002A   Sabi        12275 2015-07-01 00:30:11 2570676. 1205112.
+ 4 002A   Sabi        12275 2015-07-01 00:45:43 2570707. 1205057.
+ 5 002A   Sabi        12275 2015-07-01 01:00:20 2570656. 1205103.
+ 6 002A   Sabi        12275 2015-07-01 01:15:59 2570850. 1205038.
+ 7 002A   Sabi        12275 2015-07-01 01:31:02 2570819. 1205047.
+ 8 002A   Sabi        12275 2015-07-01 01:45:37 2570863. 1205149.
+ 9 002A   Sabi        12275 2015-07-01 02:00:17 2570863. 1205176.
+10 002A   Sabi        12275 2015-07-01 02:15:13 2570891. 1205171.
+# … with 182 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="get-an-overview" class="level3">
+<h3 class="anchored" data-anchor-id="get-an-overview">2.3 Get an overview</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sabi, <span class="fu">aes</span>(E,N, <span class="at">color =</span> DatetimeUTC)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sabi <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">50</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(DatetimeUTC, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="a-specify-a-temporal-windows-v-for-in-which-to-measure-euclidean-distances" class="level3">
+<h3 class="anchored" data-anchor-id="a-specify-a-temporal-windows-v-for-in-which-to-measure-euclidean-distances">2.4 (a) Specify a temporal windows v for in which to measure Euclidean distances</h3>
+<p>Set at 2 previous and two following data point, so overall appr. 1h window.</p>
+</section>
+<section id="b-measure-the-distance-from-every-point-to-every-other-point-within-this-temporal-window-v" class="level3">
+<h3 class="anchored" data-anchor-id="b-measure-the-distance-from-every-point-to-every-other-point-within-this-temporal-window-v">2.5 (b) Measure the distance from every point to every other point within this temporal window v</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sabi <span class="ot">&lt;-</span> sabi <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_plus1 =</span> <span class="fu">sqrt</span>((<span class="fu">lead</span>(E,<span class="dv">1</span>) <span class="sc">-</span> E)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="fu">lead</span>(N,<span class="dv">1</span>) <span class="sc">-</span> N)<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_plus2 =</span> <span class="fu">sqrt</span>((<span class="fu">lead</span>(E,<span class="dv">2</span>) <span class="sc">-</span> E)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="fu">lead</span>(N,<span class="dv">2</span>) <span class="sc">-</span> N)<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_minus1 =</span> <span class="fu">sqrt</span>((<span class="fu">lag</span>(E,<span class="dv">1</span>) <span class="sc">-</span> E)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="fu">lag</span>(N,<span class="dv">1</span>) <span class="sc">-</span> N)<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_minus2 =</span> <span class="fu">sqrt</span>((<span class="fu">lag</span>(E,<span class="dv">2</span>) <span class="sc">-</span> E)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="fu">lag</span>(N,<span class="dv">2</span>) <span class="sc">-</span> N)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sabi <span class="ot">&lt;-</span> sabi <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">stepMean =</span> <span class="fu">mean</span>(<span class="fu">c</span>(n_minus1, n_minus2, n_plus1, n_plus2))</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Careful, you need rowwise() for the mutate() function to caclulate mean() for every row. You need to ungroup it in the end, because your data frame has the rowwise grouping saved.</p>
+</section>
+<section id="c-remove-static-points-these-are-points-where-the-average-distance-is-less-than-a-given-threshold" class="level3">
+<h3 class="anchored" data-anchor-id="c-remove-static-points-these-are-points-where-the-average-distance-is-less-than-a-given-threshold">2.6 (c) Remove “static points”: These are points where the average distance is less than a given threshold</h3>
+<p>We need to determine the appropriate threshold where the points are stationary. It helps to visualize the data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sabi, <span class="fu">aes</span>(stepMean)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(sabi<span class="sc">$</span>stepMean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 4 rows containing non-finite values (stat_bin).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>In this example we used the mean as the threshold (below the mean = static = TRUE).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sabi <span class="ot">&lt;-</span> sabi <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">static =</span> stepMean <span class="sc">&lt;</span> <span class="fu">mean</span>(stepMean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>sabi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 192 × 12
+   TierID TierName CollarID DatetimeUTC                E       N n_plus1 n_plus2
+   &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+ 1 002A   Sabi        12275 2015-07-01 00:00:10 2570532.  1.21e6    15.4   159. 
+ 2 002A   Sabi        12275 2015-07-01 00:15:14 2570530.  1.21e6   155.    177. 
+ 3 002A   Sabi        12275 2015-07-01 00:30:11 2570676.  1.21e6    63.1    22.0
+ 4 002A   Sabi        12275 2015-07-01 00:45:43 2570707.  1.21e6    68.3   144. 
+ 5 002A   Sabi        12275 2015-07-01 01:00:20 2570656.  1.21e6   204.    173. 
+ 6 002A   Sabi        12275 2015-07-01 01:15:59 2570850.  1.21e6    31.7   112. 
+ 7 002A   Sabi        12275 2015-07-01 01:31:02 2570819.  1.21e6   112.    137. 
+ 8 002A   Sabi        12275 2015-07-01 01:45:37 2570863.  1.21e6    27.1    35.5
+ 9 002A   Sabi        12275 2015-07-01 02:00:17 2570863.  1.21e6    29.2    45.7
+10 002A   Sabi        12275 2015-07-01 02:15:13 2570891.  1.21e6    35.5    37.7
+# … with 182 more rows, and 4 more variables: n_minus1 &lt;dbl&gt;, n_minus2 &lt;dbl&gt;,
+#   stepMean &lt;dbl&gt;, static &lt;lgl&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sabi, <span class="fu">aes</span>(E,N)) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> static)) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>If the result looks good, filter out the static segments:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sabi_filter <span class="ot">&lt;-</span> sabi <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>static)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>sabi_filter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 54 × 12
+   TierID TierName CollarID DatetimeUTC                E       N n_plus1 n_plus2
+   &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+ 1 002A   Sabi        12275 2015-07-01 00:30:11 2570676.  1.21e6   63.1     22.0
+ 2 002A   Sabi        12275 2015-07-01 00:45:43 2570707.  1.21e6   68.3    144. 
+ 3 002A   Sabi        12275 2015-07-01 01:00:20 2570656.  1.21e6  204.     173. 
+ 4 002A   Sabi        12275 2015-07-01 01:15:59 2570850.  1.21e6   31.7    112. 
+ 5 002A   Sabi        12275 2015-07-01 01:31:02 2570819.  1.21e6  112.     137. 
+ 6 002A   Sabi        12275 2015-07-01 01:45:37 2570863.  1.21e6   27.1     35.5
+ 7 002A   Sabi        12275 2015-07-01 02:45:13 2570863.  1.21e6    7.64   204. 
+ 8 002A   Sabi        12275 2015-07-01 03:00:09 2570856.  1.21e6  199.     433. 
+ 9 002A   Sabi        12275 2015-07-01 03:15:14 2570687.  1.21e6  249.     835. 
+10 002A   Sabi        12275 2015-07-01 03:30:12 2570439.  1.21e6  591.     690. 
+# … with 44 more rows, and 4 more variables: n_minus1 &lt;dbl&gt;, n_minus2 &lt;dbl&gt;,
+#   stepMean &lt;dbl&gt;, static &lt;lgl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="d-remove-short-subtrajectories" class="level3">
+<h3 class="anchored" data-anchor-id="d-remove-short-subtrajectories">2.7 (d) Remove short subtrajectories</h3>
+<p>Not implemented for this example.</p>
+</section>
+<section id="visualize-the-segmented-filtered-data" class="level3">
+<h3 class="anchored" data-anchor-id="visualize-the-segmented-filtered-data">2.8 Visualize the segmented &amp; filtered data</h3>
+<p>And visualize the result:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sabi_filter <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(E, N)) <span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="segmentation-of-your-posmo-data" class="level2">
+<h2 class="anchored" data-anchor-id="segmentation-of-your-posmo-data">3. Segmentation of your Posmo data</h2>
+<p>With what we learned, we can no process the Posmo data</p>
+<section id="preperation" class="level3">
+<h3 class="anchored" data-anchor-id="preperation">3.1 Preperation</h3>
+<p>Import the data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>posmo <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datasets/posmo_2023-01-01T00 00 00+01 00-2023-05-07T23 59 59+02 00.csv"</span>, <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 16439 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (4): user_id, weekday, place_name, transport_mode
+dbl  (2): lon_x, lat_y
+dttm (1): datetime
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p>Keep only the necessary columns</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>posmo <span class="ot">&lt;-</span> <span class="fu">select</span>(posmo, datetime, lon_x, lat_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Store your data frame as a spatial data frame and transform the coordinate system from WGS84 (i.e.&nbsp;EPSG 4326) to CH1903+ LV95 (EPSG 2056)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>posmo <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(posmo, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon_x"</span>,<span class="st">"lat_y"</span>), <span class="at">crs =</span> <span class="dv">4326</span>) <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="dv">2056</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(posmo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 6 features and 1 field
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: 2682667 ymin: 1241821 xmax: 2682729 ymax: 1241901
+Projected CRS: CH1903+ / LV95
+# A tibble: 6 × 2
+  datetime                     geometry
+  &lt;dttm&gt;                    &lt;POINT [m]&gt;
+1 2023-04-11 10:50:01 (2682729 1241901)
+2 2023-04-11 14:26:22 (2682729 1241901)
+3 2023-04-11 14:26:22 (2682701 1241852)
+4 2023-04-11 14:26:32 (2682667 1241836)
+5 2023-04-11 14:26:42 (2682674 1241825)
+6 2023-04-11 14:26:51 (2682683 1241821)</code></pre>
+</div>
+</div>
+<p>Extract the coordinates into separate coloms to use them for euclidean distance calculation:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>posmo_coordinates <span class="ot">&lt;-</span> <span class="fu">st_coordinates</span>(posmo)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>posmo <span class="ot">&lt;-</span> <span class="fu">cbind</span>(posmo, posmo_coordinates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Choose a single day for this exercise (13.04.2023, because many different visited places that day) and filter your data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>posmo_filter <span class="ot">&lt;-</span> posmo <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">as.Date</span>(datetime) <span class="sc">==</span> <span class="st">"2023-04-13"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="task-1-segmentation" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-segmentation">3.2 Task 1: Segmentation</h3>
+<p>Implement above mentioned steps a-c for your movement data.</p>
+<section id="get-an-overview-1" class="level4">
+<h4 class="anchored" data-anchor-id="get-an-overview-1">3.2.1 Get an overview</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(posmo_filter, <span class="fu">aes</span>(X,Y, <span class="at">color =</span> datetime)) <span class="sc">+</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>X = E, Y = N</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>posmo_filter<span class="sc">|&gt;</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">50</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(datetime, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="a-specify-a-temporal-windows-v-for-in-which-to-measure-euclidean-distances-1" class="level4">
+<h4 class="anchored" data-anchor-id="a-specify-a-temporal-windows-v-for-in-which-to-measure-euclidean-distances-1">3.2.2 (a) Specify a temporal windows v for in which to measure Euclidean distances</h4>
+<p>Calculate timelag to figure out a appropriate temporal window:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>posmo_filter <span class="ot">&lt;-</span> posmo_filter<span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">timelag_s =</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(<span class="fu">lead</span>(datetime), datetime)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>So what does the timelag between measurement points look like:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(posmo_filter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 6 features and 4 fields
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: 2682432 ymin: 1243963 xmax: 2682493 ymax: 1243979
+Projected CRS: CH1903+ / LV95
+                datetime       X       Y                geometry timelag_s
+2294 2023-04-13 16:44:35 2682493 1243963 POINT (2682493 1243963)        10
+2295 2023-04-13 16:44:45 2682485 1243965 POINT (2682485 1243965)        10
+2296 2023-04-13 16:44:55 2682465 1243970 POINT (2682465 1243970)        10
+2297 2023-04-13 16:45:05 2682432 1243979 POINT (2682432 1243979)        10
+2298 2023-04-13 16:45:15 2682432 1243979 POINT (2682432 1243979)     18885
+2299 2023-04-13 22:00:00 2682432 1243979 POINT (2682432 1243979)        NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(posmo_filter<span class="sc">$</span>timelag_s, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30.37457</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(posmo_filter<span class="sc">$</span>timelag_s, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(posmo_filter<span class="sc">$</span>timelag_s, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(posmo_filter<span class="sc">$</span>timelag_s, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18885</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>posmo_filter<span class="sc">|&gt;</span> </span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(timelag_s)) <span class="sc">+</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20000</span>)) <span class="sc">+</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Scale for 'x' is already present. Adding another scale for 'x', which will
+replace the existing scale.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Transformation introduced infinite values in continuous x-axis</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 46 rows containing non-finite values (stat_bin).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>posmo_filter <span class="sc">|&gt;</span> </span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(datetime, timelag_s)) <span class="sc">+</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row(s) containing missing values (geom_path).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-21-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Unfortunately the timelag between measurement points is very irregular. Maybe in a later step it would make sense to increase the granularity in the data to</p>
+<p>For this exercise we try to use the data as is and try it with a window of 10 steps and 20 steps forward and backward in the data. This is roughly v = 20s-6min, because the most common timelag is 10s, with most being between 1 and 20s.</p>
+</section>
+<section id="b-measure-the-distance-from-every-point-to-every-other-point-within-this-temporal-window-v-1" class="level4">
+<h4 class="anchored" data-anchor-id="b-measure-the-distance-from-every-point-to-every-other-point-within-this-temporal-window-v-1">3.2.3 (b) Measure the distance from every point to every other point within this temporal window v</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>posmo_filter <span class="ot">&lt;-</span> posmo_filter <span class="sc">|&gt;</span> </span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_plus10 =</span> <span class="fu">sqrt</span>((<span class="fu">lead</span>(X,<span class="dv">10</span>) <span class="sc">-</span> X)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="fu">lead</span>(Y,<span class="dv">10</span>) <span class="sc">-</span> Y)<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_plus20 =</span> <span class="fu">sqrt</span>((<span class="fu">lead</span>(X,<span class="dv">20</span>) <span class="sc">-</span> X)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="fu">lead</span>(Y,<span class="dv">20</span>) <span class="sc">-</span> Y)<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_minus10 =</span> <span class="fu">sqrt</span>((<span class="fu">lag</span>(X,<span class="dv">10</span>) <span class="sc">-</span> X)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="fu">lag</span>(Y,<span class="dv">10</span>) <span class="sc">-</span> Y)<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_minus20 =</span> <span class="fu">sqrt</span>((<span class="fu">lag</span>(X,<span class="dv">20</span>) <span class="sc">-</span> X)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="fu">lag</span>(Y,<span class="dv">20</span>) <span class="sc">-</span> Y)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>posmo_filter <span class="ot">&lt;-</span> posmo_filter <span class="sc">|&gt;</span> </span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">stepMean =</span> <span class="fu">mean</span>(<span class="fu">c</span>(n_minus10, n_minus20, n_plus10, n_plus20))</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Careful, you need rowwise() for the mutate() function to caclulate mean() for every row. You need to ungroup it in the end, because your data frame has the rowwise grouping saved.</p>
+</section>
+<section id="c-remove-static-points-these-are-points-where-the-average-distance-is-less-than-a-given-threshold-1" class="level4">
+<h4 class="anchored" data-anchor-id="c-remove-static-points-these-are-points-where-the-average-distance-is-less-than-a-given-threshold-1">3.2.4 (c) Remove “static points”: These are points where the average distance is less than a given threshold</h4>
+<p>We need to determine the appropriate threshold where the points are stationary. It helps to visualize the data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(posmo_filter, <span class="fu">aes</span>(stepMean)) <span class="sc">+</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(posmo_filter<span class="sc">$</span>stepMean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 40 rows containing non-finite values (stat_bin).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="task-2-specify-and-apply-threshold-d" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-specify-and-apply-threshold-d">3.3 Task 2: Specify and apply threshold d</h3>
+<p>To find a good threshold, I tried different distances which I would realistically travel when not being stationary.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>posmo_filter <span class="ot">&lt;-</span> posmo_filter <span class="sc">|&gt;</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">static =</span> stepMean <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>(static)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="task-3-visualize-segmented-trajectories" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-visualize-segmented-trajectories">3.4 Task 3: Visualize segmented trajectories</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(posmo_filter, <span class="fu">aes</span>(X,Y)) <span class="sc">+</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> static)) <span class="sc">+</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Moving 200m in approx. 6min (more or less the time window) being the threshold for being stationary seems to line up well with the reality when visualizing it.</p>
+</section>
+<section id="task-4-segment-based-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-segment-based-analysis">3.5 Task 4: Segment-based analysis</h3>
+<p>Create function for segmentation at the stationary points:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>rle_id <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">rle</span>(vec)<span class="sc">$</span>lengths</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.factor</span>(<span class="fu">rep</span>(<span class="fu">seq_along</span>(x), <span class="at">times =</span> x))</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Run the function on the data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>posmo_filter <span class="ot">&lt;-</span> posmo_filter <span class="sc">|&gt;</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">segment_id =</span> <span class="fu">rle_id</span>(static))</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(posmo_filter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 6 features and 11 fields
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: 2682463 ymin: 1242341 xmax: 2682473 ymax: 1242473
+Projected CRS: CH1903+ / LV95
+# A tibble: 6 × 12
+  datetime                   X       Y          geometry timelag_s n_plus10
+  &lt;dttm&gt;                 &lt;dbl&gt;   &lt;dbl&gt;       &lt;POINT [m]&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 2023-04-13 04:59:59 2682463.  1.24e6 (2682463 1242341)        10     452.
+2 2023-04-13 05:00:09 2682473.  1.24e6 (2682473 1242416)         9     494.
+3 2023-04-13 05:00:18 2682472.  1.24e6 (2682472 1242434)         9     553.
+4 2023-04-13 05:00:27 2682472.  1.24e6 (2682472 1242433)         9     607.
+5 2023-04-13 05:00:36 2682471.  1.24e6 (2682471 1242448)         9     631.
+6 2023-04-13 05:00:45 2682471.  1.24e6 (2682471 1242473)         9     639.
+# … with 6 more variables: n_plus20 &lt;dbl&gt;, n_minus10 &lt;dbl&gt;, n_minus20 &lt;dbl&gt;,
+#   stepMean &lt;dbl&gt;, static &lt;lgl&gt;, segment_id &lt;fct&gt;</code></pre>
+</div>
+</div>
+<p>Visualize the segments:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(posmo_filter, <span class="fu">aes</span>(X,Y)) <span class="sc">+</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> segment_id)) <span class="sc">+</span></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Seems to line up well with ground truth for that day and the trips I took. If I would want to improve the segmentation, I would have to compare the details with reality and maybe smoothen out the differences in timelags.</p>
+</section>
+<section id="task-5-similarity-measures" class="level3">
+<h3 class="anchored" data-anchor-id="task-5-similarity-measures">3.6 Task 5: Similarity measures</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>pedestrian <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datasets/pedestrian.csv"</span>, <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 289 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl  (3): TrajID, E, N
+dttm (1): DatetimeUTC
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pedestrian, <span class="fu">aes</span>(E,N, <span class="at">color =</span> TrajID)) <span class="sc">+</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(TrajID<span class="sc">~</span>.)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="task-6-calculate-similarity" class="level3">
+<h3 class="anchored" data-anchor-id="task-6-calculate-similarity">3.7 Task 6: Calculate similarity</h3>
+<p>Separate into different matrices:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>Traj1 <span class="ot">&lt;-</span> pedestrian <span class="sc">|&gt;</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(TrajID <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(E, N) <span class="sc">|&gt;</span> </span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.matrix</span>()</span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(Traj1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "matrix" "array" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>Traj2 <span class="ot">&lt;-</span> pedestrian <span class="sc">|&gt;</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(TrajID <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(E, N) <span class="sc">|&gt;</span> </span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.matrix</span>()</span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>Traj3 <span class="ot">&lt;-</span> pedestrian <span class="sc">|&gt;</span></span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(TrajID <span class="sc">==</span> <span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(E, N) <span class="sc">|&gt;</span> </span>
+<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.matrix</span>()</span>
+<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-11"><a href="#cb69-11" aria-hidden="true" tabindex="-1"></a>Traj4 <span class="ot">&lt;-</span> pedestrian <span class="sc">|&gt;</span></span>
+<span id="cb69-12"><a href="#cb69-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(TrajID <span class="sc">==</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb69-13"><a href="#cb69-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(E, N) <span class="sc">|&gt;</span> </span>
+<span id="cb69-14"><a href="#cb69-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.matrix</span>()</span>
+<span id="cb69-15"><a href="#cb69-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-16"><a href="#cb69-16" aria-hidden="true" tabindex="-1"></a>Traj5 <span class="ot">&lt;-</span> pedestrian <span class="sc">|&gt;</span></span>
+<span id="cb69-17"><a href="#cb69-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(TrajID <span class="sc">==</span> <span class="dv">5</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb69-18"><a href="#cb69-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(E, N) <span class="sc">|&gt;</span> </span>
+<span id="cb69-19"><a href="#cb69-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.matrix</span>()</span>
+<span id="cb69-20"><a href="#cb69-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-21"><a href="#cb69-21" aria-hidden="true" tabindex="-1"></a>Traj6 <span class="ot">&lt;-</span> pedestrian <span class="sc">|&gt;</span></span>
+<span id="cb69-22"><a href="#cb69-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(TrajID <span class="sc">==</span> <span class="dv">6</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb69-23"><a href="#cb69-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(E, N) <span class="sc">|&gt;</span> </span>
+<span id="cb69-24"><a href="#cb69-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.matrix</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Before calculating the similarities, by eye I would consider 2 and 6 to be the most similar to 1, followed by 3 the 5. 4 being the most dissimilar.</p>
+<p>Set up the ID’s of the trajectories for the matrices:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>ID <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>DTW</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DTW</span>(Traj1, Traj2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3650.025</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DTW</span>(Traj1, Traj3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 50785.51</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DTW</span>(Traj1, Traj4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5906.787</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DTW</span>(Traj1, Traj5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2178.411</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DTW</span>(Traj1, Traj6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1152.718</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>DTW <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">DTW</span>(Traj1, Traj2), <span class="fu">DTW</span>(Traj1, Traj3), <span class="fu">DTW</span>(Traj1, Traj4), <span class="fu">DTW</span>(Traj1, Traj5), <span class="fu">DTW</span>(Traj1, Traj6))</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>DTW</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  3650.025 50785.511  5906.787  2178.411  1152.718</code></pre>
+</div>
+</div>
+<p>EditDist</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">EditDist</span>(Traj1, Traj2, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 45</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">EditDist</span>(Traj1, Traj3, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 47</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">EditDist</span>(Traj1, Traj4, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">EditDist</span>(Traj1, Traj5, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 28</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">EditDist</span>(Traj1, Traj6, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 27</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>EditDist <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">EditDist</span>(Traj1, Traj2, <span class="dv">20</span>), <span class="fu">EditDist</span>(Traj1, Traj3, <span class="dv">20</span>), <span class="fu">EditDist</span>(Traj1, Traj4, <span class="dv">20</span>), <span class="fu">EditDist</span>(Traj1, Traj5, <span class="dv">20</span>), <span class="fu">EditDist</span>(Traj1, Traj6, <span class="dv">20</span>))</span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>EditDist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 45 47 42 28 27</code></pre>
+</div>
+</div>
+<p>Frechet</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Frechet</span>(Traj1, Traj2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+28.54075 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Frechet</span>(Traj1, Traj3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       E 
+2307.844 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Frechet</span>(Traj1, Traj4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+1069.229 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Frechet</span>(Traj1, Traj5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+717.9816 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Frechet</span>(Traj1, Traj6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+38.96272 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>Frechet <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">Frechet</span>(Traj1, Traj2), <span class="fu">Frechet</span>(Traj1, Traj3), <span class="fu">Frechet</span>(Traj1, Traj4), <span class="fu">Frechet</span>(Traj1, Traj5), <span class="fu">Frechet</span>(Traj1, Traj6))</span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>Frechet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    E                                  
+  28.54075 2307.84366 1069.22917  717.98159   38.96272 </code></pre>
+</div>
+</div>
+<p>LCSS</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LCSS</span>(Traj1, Traj2, <span class="at">errorMarg =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 17</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LCSS</span>(Traj1, Traj3, <span class="at">errorMarg =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LCSS</span>(Traj1, Traj4, <span class="at">errorMarg =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LCSS</span>(Traj1, Traj5, <span class="at">errorMarg =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LCSS</span>(Traj1, Traj6, <span class="at">errorMarg =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>LCSS <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">LCSS</span>(Traj1, Traj2, <span class="at">errorMarg =</span> <span class="dv">10</span>), <span class="fu">LCSS</span>(Traj1, Traj3, <span class="at">errorMarg =</span> <span class="dv">10</span>), <span class="fu">LCSS</span>(Traj1, Traj4, <span class="at">errorMarg =</span> <span class="dv">10</span>), <span class="fu">LCSS</span>(Traj1, Traj5, <span class="at">errorMarg =</span> <span class="dv">10</span>), <span class="fu">LCSS</span>(Traj1, Traj6, <span class="at">errorMarg =</span> <span class="dv">10</span>))</span>
+<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>LCSS</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 17  1 18 31 26</code></pre>
+</div>
+</div>
+<p>Table:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>Similarity <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(ID, DTW, EditDist, Frechet, LCSS)</span>
+<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>Similarity</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ID       DTW EditDist    Frechet LCSS
+1  2  3650.025       45   28.54075   17
+2  3 50785.511       47 2307.84366    1
+3  4  5906.787       42 1069.22917   18
+4  5  2178.411       28  717.98159   31
+5  6  1152.718       27   38.96272   26</code></pre>
+</div>
+</div>
+<p>Change to long table &amp; visualize:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>Similarity_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(Similarity, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"DTW"</span>, <span class="st">"EditDist"</span>, <span class="st">"Frechet"</span>, <span class="st">"LCSS"</span>))</span>
+<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Similarity_long, <span class="fu">aes</span>(ID, value)) <span class="sc">+</span></span>
+<span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">'identity'</span>, <span class="fu">aes</span>(<span class="at">fill =</span> <span class="fu">factor</span>(ID))) <span class="sc">+</span> </span>
+<span id="cb121-5"><a href="#cb121-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(name<span class="sc">~</span>., <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb121-6"><a href="#cb121-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb121-7"><a href="#cb121-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb121-8"><a href="#cb121-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Comparison trajectory"</span>,</span>
+<span id="cb121-9"><a href="#cb121-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Value"</span>, </span>
+<span id="cb121-10"><a href="#cb121-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Computed similarities using different measures between trajectory 1 to all the other trajectories"</span></span>
+<span id="cb121-11"><a href="#cb121-11" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="exercise3_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>According to this visualization, the closed fit to my intuitive answer would be DTW and Frechet-Distance, where 2 and 6 are the most similar in trajectory. However the both consider 3 to be the most dissimilar, which seems counter-intuitive. The only one that does not consider 3 to be very dissimilar is LCSS, but it considers it the most similar which cannot be true either. Maybe the specifications for the methods need to be adjusted</p>
+</section>
+<section id="submission" class="level3">
+<h3 class="anchored" data-anchor-id="submission">3.8 Submission</h3>
+<p>Submitted on the 09.05.2023 by pushing it to GitHub.</p>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
