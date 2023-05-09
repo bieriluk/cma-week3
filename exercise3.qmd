@@ -215,7 +215,7 @@ posmo <- st_as_sf(posmo, coords = c("lon_x","lat_y"), crs = 4326) |>
 head(posmo)
 ```
 
-Extract the coordinates into separate coloms to use them for euclidian distance calculation:
+Extract the coordinates into separate coloms to use them for euclidean distance calculation:
 ```{r}
 posmo_coordinates <- st_coordinates(posmo)
 
@@ -254,7 +254,7 @@ posmo_filter <- posmo_filter|>
   mutate(timelag_s = as.numeric(difftime(lead(datetime), datetime)))
 ```
 
-So what does the timelag between measurment points look like:
+So what does the timelag between measurement points look like:
 ```{r}
 tail(posmo_filter)
 mean(posmo_filter$timelag_s, na.rm = TRUE)
@@ -275,8 +275,9 @@ posmo_filter |>
   geom_line()
 
 ```
+Unfortunately the timelag between measurement points is very irregular. Maybe in a later step it would make sense to increase the granularity in the data to 
 
-To try, we fist choose v = 1h, so 30min 
+For this exercise we try to use the data as is and try it with a window of 10 steps and 20 steps forward and backward in the data. This is roughly v = 20s-6min, because the most common timelag is 10s, with most being between 1 and 20s. 
 
 #### 3.2.3 (b) Measure the distance from every point to every other point within this temporal window v
 ```{r}
@@ -311,29 +312,25 @@ ggplot(posmo_filter, aes(stepMean)) +
 
 
 ### 3.3 Task 2: Specify and apply threshold d
-In this example we used the mean as the threshold (below the mean = static = TRUE).
+To find a good threshold, I tried different distances which I would realistically travel when not being stationary.
 ```{r}
 posmo_filter <- posmo_filter |>
     ungroup() |>
     mutate(static = stepMean < 200) |>
     drop_na(static)
-
-
 ```
 
 ### 3.4 Task 3: Visualize segmented trajectories
-
 ```{r}
 ggplot(posmo_filter, aes(X,Y)) +
   geom_path() +
   geom_point(aes(color = static)) +
   coord_equal()
 ```
-
+Moving 200m in approx. 6min (more or less the time window) being the threshold for being stationary seems to line up well with the reality when visualizing it.
 
 ### 3.5 Task 4: Segment-based analysis
-
-Create function:
+Create function for segmentation at the stationary points:
 ```{r}
 rle_id <- function(vec) {
     x <- rle(vec)$lengths
@@ -341,6 +338,7 @@ rle_id <- function(vec) {
 }
 ```
 
+Run the function on the data:
 ```{r}
 posmo_filter <- posmo_filter |>
     mutate(segment_id = rle_id(static))
@@ -348,13 +346,15 @@ posmo_filter <- posmo_filter |>
 head(posmo_filter)
 ```
 
-
+Visualize the segments:
 ```{r}
 ggplot(posmo_filter, aes(X,Y)) +
   geom_path() +
   geom_point(aes(color = segment_id)) +
   coord_equal()
 ```
+
+Seems to line up well with ground truth for that day and the trips I took. If I would want to improve the segmentation, I would have to compare the details with reality and maybe smoothen out the differences in timelags.
 
 ### 3.6 Task 5: Similarity measures
 
@@ -406,6 +406,9 @@ Traj6 <- pedestrian |>
 
 ```
 
+Before calculating the similarities, by eye I would consider 2 and 6 to be the most similar to 1, followed by 3 the 5. 4 being the most dissimilar.
+
+Set up the ID's of the trajectories for the matrices:
 ```{r}
 ID <- c(2, 3, 4, 5, 6)
 ```
@@ -466,17 +469,23 @@ Similarity <- data.frame(ID, DTW, EditDist, Frechet, LCSS)
 Similarity
 ```
 
-Visualization:
+Change to long table & visualize:
 ```{r}
-pivot_longer(Similarity, cols = c("DTW", "EditDist", "Frechet", "LCSS"))
+Similarity_long <- pivot_longer(Similarity, cols = c("DTW", "EditDist", "Frechet", "LCSS"))
 
-ggplot(Similarity, aes(ID, value, color = ID)) +
-  geom_bar() + 
-  facet_wrap(name~.)
+ggplot(Similarity_long, aes(ID, value)) +
+  geom_bar(stat='identity', aes(fill = factor(ID))) + 
+  facet_wrap(name~., scales = "free_y") +
+  theme(legend.position = "none") +
+  labs(
+    x = "Comparison trajectory",
+    y = "Value", 
+    title = "Computed similarities using different measures between trajectory 1 to all the other trajectories"
+    )
 ```
-
+According to this visualization, the closed fit to my intuitive answer would be DTW and Frechet-Distance, where 2 and 6 are the most similar in trajectory. However the both consider 3 to be the most dissimilar, which seems counter-intuitive. The only one that does not consider 3 to be very dissimilar is LCSS, but it considers it the most similar which cannot be true either. Maybe the specifications for the methods need to be adjusted
 
 ### 3.8 Submission
-Submitted on the XX.XX.2023 by pushing it to GitHub.
+Submitted on the 09.05.2023 by pushing it to GitHub.
 
 
